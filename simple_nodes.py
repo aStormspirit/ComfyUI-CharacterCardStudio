@@ -51,53 +51,58 @@ def _generation_size(cell: dict[str, Any], card_width: int, card_height: int) ->
 
 def _cell_generation_prompt(cell: dict[str, Any], slot: dict[str, Any], common: str) -> str:
     role = str(cell.get("role") or slot.get("role") or "custom")
-    label = str(slot.get("label") or cell.get("label") or "素材")
-    detail = str(slot.get("prompt") or cell.get("prompt") or "保持主体一致")
+    label = str(slot.get("label") or cell.get("label") or "Ассет")
+    detail = str(slot.get("prompt") or cell.get("prompt") or "Сохранять субъект неизменным")
 
     framing = {
         "hero": (
-            "单张角色资产图，只生成一个人物，完整正面全身，从头顶到鞋底全部入镜，"
-            "主体居中并留出安全边距。不要拼贴，不要多视图，不要画框。"
+            "Один ассет персонажа: только один человек, полный рост анфас от макушки до подошв, "
+            "субъект по центру с безопасными отступами. Без коллажа, без нескольких ракурсов, без рамки."
         ),
         "turnaround": (
-            "单张角色资产图，只生成一个人物，完整全身，从头顶到鞋底全部入镜，"
-            "主体居中并留出安全边距。不要拼贴，不要多视图，不要画框。"
+            "Один ассет персонажа: только один человек, полный рост от макушки до подошв, "
+            "субъект по центру с безопасными отступами. Без коллажа, без нескольких ракурсов, без рамки."
         ),
         "portrait": (
-            "单张头肩肖像素材，只生成一个人物，头部到肩部完整入镜，"
-            "脸部清晰居中。不要全身，不要拼贴，不要画框。"
+            "Один плечевой портрет: только один человек, голова и плечи целиком в кадре, "
+            "лицо чётко по центру. Не полный рост, без коллажа, без рамки."
         ),
         "expression": (
-            "单张表情头肩素材，只生成一个人物，头部到肩部完整入镜，"
-            "表情明确且与角色默认表情不同。不要全身，不要拼贴，不要画框。"
+            "Один плечевой кадр эмоции: только один человек, голова и плечи целиком в кадре, "
+            "эмоция явная и отличается от нейтральной. Не полный рост, без коллажа, без рамки."
         ),
         "detail": (
-            "单张局部微距素材，只展示指定的服饰、眼睛或配饰细节，"
-            "不出现完整人物头部和全身，不拼贴，不要画框。"
+            "Один локальный макрокадр: только указанная деталь одежды, глаз или аксессуара, "
+            "без полной головы и полного роста, без коллажа, без рамки."
         ),
         "scene_anchor": (
-            "生成一张场景正面主视图。保持自然透视，完整展示主要地形、建筑、道路、植被或物件，"
-            "场景为主，不新增人物或动物，不拼贴，不要画框。"
+            "Сгенерировать главный вид сцены анфас. Естественная перспектива, полностью показать "
+            "основной рельеф, архитектуру, дороги, растительность или объекты; сцена в центре внимания, "
+            "не добавлять людей или животных, без коллажа, без рамки."
         ),
         "scene_view": (
-            "生成同一场景的单张环视视角。必须真正转动相机方位，展示参考方向中未出现的空间；"
-            "延续空间结构、主要物件、材质和光照，场景为主，不新增人物或动物，不拼贴，不要画框。"
+            "Сгенерировать один ракурс кругового обзора той же сцены. Реально повернуть камеру и "
+            "показать пространство, которого нет в референсном направлении; сохранить структуру, "
+            "ключевые объекты, материалы и освещение; сцена в центре внимания, не добавлять людей "
+            "или животных, без коллажа, без рамки."
         ),
         "scene_panorama": (
-            "生成同一场景的横向360°连续全景展开图，按照0°、90°、180°、270°、回到0°的顺序"
-            "自然衔接，不能重复同一构图；场景为主，不新增人物或动物，不拼贴，不要画框。"
+            "Сгенерировать горизонтальную непрерывную панораму той же сцены 360° в порядке "
+            "0°, 90°, 180°, 270°, возврат к 0° с естественными стыками; нельзя повторять одну "
+            "композицию; сцена в центре внимания, не добавлять людей или животных, без коллажа, без рамки."
         ),
         "scene_detail": (
-            "生成同一场景的单张环境材质微距，只展示材质、纹理、植被、建筑构件或装饰局部，"
-            "不生成完整场景，不新增人物或动物，不拼贴，不要画框。"
+            "Сгенерировать один макрокадр материала окружения той же сцены: только материал, "
+            "текстура, растительность, архитектурный элемент или декоративный фрагмент; "
+            "не полная сцена, не добавлять людей или животных, без коллажа, без рамки."
         ),
-    }.get(role, "单张资产图，只生成一个主体，不要拼贴或多视图。")
+    }.get(role, "Один ассет: только один субъект, без коллажа и нескольких ракурсов.")
 
     return (
         f"{common}"
-        f"当前素材名称：{label}。{detail}。"
+        f"Название текущего ассета: {label}. {detail}."
         f"{framing}"
-        "不要生成设定卡分格，不要生成文字、编号、标签、边框或水印。"
+        "Не генерировать сетку карты персонажа, не генерировать текст, номера, подписи, рамки или водяные знаки."
     )
 
 def _fit_asset(
@@ -140,7 +145,8 @@ def _compose_individual_assets(
     draw.rectangle((0, 0, width, max(3, int(height * 0.006))), fill=accent_color)
 
     slots = active_slots(state)
-    fit_cover = "填满" in str(state.get("fitMode") or "")
+    fit_mode = str(state.get("fitMode") or "")
+    fit_cover = "Заполн" in fit_mode or "填满" in fit_mode or "заполн" in fit_mode
     mapping: list[dict[str, Any]] = []
     asset_cursor = 0
 
@@ -168,7 +174,7 @@ def _compose_individual_assets(
         canvas.paste(fitted, (rect[0], rect[1]))
         draw.rectangle(rect, outline=(211, 214, 219), width=max(1, int(min(width, height) / 1400)))
         if state.get("showLabels"):
-            _draw_label(draw, rect, str(slot.get("label") or cell.get("label") or f"画格 {slot_index + 1}"))
+            _draw_label(draw, rect, str(slot.get("label") or cell.get("label") or f"Ячейка {slot_index + 1}"))
         mapping.append(
             {
                 "target": slot_index + 1,
@@ -193,11 +199,11 @@ def _compose_individual_assets(
 
 
 class CardSettingsFive:
-    CATEGORY = "AICG3D/角色卡"
+    CATEGORY = "AICG3D/Карта персонажа"
     FUNCTION = "build"
     RETURN_TYPES = ("STRING", "IMAGE")
-    RETURN_NAMES = ("角色卡设置", "参考图")
-    DESCRIPTION = "提供八种角色卡版式和一套通用场景360°环视图；节点 ID 保留旧名称以兼容已有工作流。"
+    RETURN_NAMES = ("Настройки карты", "Справочное изображение")
+    DESCRIPTION = "Восемь макетов карты персонажа и один общий обзор сцены 360°; ID узлов сохранены для совместимости со старыми workflow."
 
     @classmethod
     def INPUT_TYPES(cls) -> dict[str, Any]:
@@ -207,18 +213,18 @@ class CardSettingsFive:
                 "character_prompt": (
                     "STRING",
                     {
-                        "default": "原创角色，写实电影级半写实3D风格，五官清晰，服装与配饰设计完整。",
+                        "default": "Оригинальный персонаж, кинематографичный полуреалистичный 3D-стиль, чёткие черты лица, продуманная одежда и аксессуары.",
                         "multiline": True,
                     },
                 ),
-                "title": ("STRING", {"default": "未命名角色"}),
-                "style": ("STRING", {"default": "电影级角色设定，干净背景，柔和棚拍光，专业角色资产"}),
+                "title": ("STRING", {"default": "Безымянный персонаж"}),
+                "style": ("STRING", {"default": "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональные ассеты"}),
                 "show_labels": ("BOOLEAN", {"default": False}),
-                "fit_mode": (["完整显示", "填满裁切"], {"default": "完整显示"}),
+                "fit_mode": (["Полностью", "Заполнить с обрезкой"], {"default": "Полностью"}),
                 "scene_prompt": (
                     "STRING",
                     {
-                        "default": "完整场景，空间结构清晰，支持0°、90°、180°、270°连续环视，地形、建筑、道路、植被或主要物件关系明确，真实材质与统一光照。",
+                        "default": "Полная сцена с ясной пространственной структурой, поддерживает непрерывный обзор 0°, 90°, 180°, 270°; рельеф, архитектура, дороги, растительность или ключевые объекты связаны; реалистичные материалы и единое освещение.",
                         "multiline": True,
                     },
                 ),
@@ -242,7 +248,7 @@ class CardSettingsFive:
         height = int(selected.get("height", 1080))
         is_scene = str(selected.get("kind") or "") == "scene"
         subject_prompt = scene_prompt if is_scene else character_prompt
-        subject_title = "未命名场景" if is_scene and title in {"", "未命名角色"} else title
+        subject_title = "Безымянная сцена" if is_scene and title in {"", "未命名角色", "Безымянный персонаж"} else title
         raw = one_click_state(selected, subject_title, subject_prompt, style, show_labels)
         state, _ = normalise_state(raw, width, height)
         state["fitMode"] = fit_mode
@@ -250,11 +256,11 @@ class CardSettingsFive:
 
 
 class Qwen21ModelLoader:
-    CATEGORY = "AICG3D/角色卡"
+    CATEGORY = "AICG3D/Карта персонажа"
     FUNCTION = "load"
     RETURN_TYPES = ("MODEL", "CLIP", "VAE", "STRING", "IMAGE")
-    RETURN_NAMES = ("MODEL", "CLIP", "VAE", "角色卡设置", "参考图")
-    DESCRIPTION = "主线中的千问 Image 2.1 模型、文本编码器和 VAE 选择。"
+    RETURN_NAMES = ("MODEL", "CLIP", "VAE", "Настройки карты", "Справочное изображение")
+    DESCRIPTION = "Выбор модели Qwen Image 2.1, текстового энкодера и VAE в основной цепочке."
 
     @classmethod
     def INPUT_TYPES(cls) -> dict[str, Any]:
@@ -290,11 +296,11 @@ class Qwen21ModelLoader:
 
 
 class CharacterCardGeneratorSingle:
-    CATEGORY = "AICG3D/角色卡"
+    CATEGORY = "AICG3D/Карта персонажа"
     FUNCTION = "generate"
     RETURN_TYPES = ("IMAGE", "IMAGE", "STRING")
-    RETURN_NAMES = ("角色卡", "资产批次", "生成报告")
-    DESCRIPTION = "每个启用画格独立生成一张素材，再按同一份模板坐标精确拼回角色卡。"
+    RETURN_NAMES = ("Карта персонажа", "Пакет ассетов", "Отчёт генерации")
+    DESCRIPTION = "Каждая включённая ячейка генерируется отдельно, затем точно собирается обратно в карту по координатам того же шаблона."
 
     @classmethod
     def INPUT_TYPES(cls) -> dict[str, Any]:
@@ -332,7 +338,7 @@ class CharacterCardGeneratorSingle:
         config = json.loads(settings)
         template = get_template(config.get("templateId"))
         state, _ = normalise_state(config, int(template.get("width", 1920)), int(template.get("height", 1080)))
-        state["fitMode"] = str(config.get("fitMode") or "完整显示")
+        state["fitMode"] = str(config.get("fitMode") or "Полностью")
         slots = active_slots(state)
         if not slots:
             raise ValueError("CharacterCardStudio: no enabled card cells")
@@ -358,26 +364,26 @@ class CharacterCardGeneratorSingle:
             anchor_source = "reference_input"
 
         scene_refs = [anchor_ref] if is_scene and anchor_ref is not None else []
-        subject = state.get("identity") or state.get("appearance") or "原创主体"
-        style = state.get("style") or "电影级角色设定"
+        subject = state.get("identity") or state.get("appearance") or "Оригинальный субъект"
+        style = state.get("style") or "Кинематографичный дизайн персонажа"
         negative = str(state.get("negativePrompt") or DEFAULT_NEGATIVE)
         if is_scene:
-            negative += "，新增人物，新增动物，场景结构漂移，地形变化，建筑位置错乱，主要物件形变，材质不一致，相同相机方位，复制原图，镜像伪装转向，四格视角重复"
+            negative += ", добавленные люди, добавленные животные, дрейф структуры сцены, изменение рельефа, сдвиг зданий, деформация ключевых объектов, несогласованные материалы, тот же ракурс камеры, копирование исходника, зеркальная имитация поворота, повторяющиеся четыре ракурса"
             common = (
-                f"同一个场景。场景设定：{subject}。统一风格：{style}。"
-                "参考图是唯一空间锚点，必须保持地形、建筑、道路、植被、主要物件、材质、颜色和主光方向一致。"
-                "按0°、90°、180°、270°连续转动相机，每个方向都要看到不同的空间内容，"
-                "最后再生成360°连续全景；场景为主，不新增人物或动物，不能复制或镜像原图冒充转向。"
+                f"Одна и та же сцена. Описание сцены: {subject}. Единый стиль: {style}."
+                "Референс — единственный пространственный якорь: сохранять рельеф, архитектуру, дороги, растительность, ключевые объекты, материалы, цвета и направление главного света."
+                "Непрерывно поворачивать камеру на 0°, 90°, 180°, 270°, в каждом направлении показывать разное пространство, "
+                "затем сгенерировать непрерывную панораму 360°; сцена в центре внимания, не добавлять людей или животных, нельзя копировать или зеркалить исходник вместо поворота."
             )
         else:
             identity_lock = (
-                "参考图是同一人，严格复刻其脸型、五官、瞳色、发型发色、肤色、服装和配饰。"
+                "Референс — тот же человек: строго воспроизвести форму лица, черты, цвет глаз, причёску и цвет волос, цвет кожи, одежду и аксессуары."
                 if reference_image is not None
                 else ""
             )
             common = (
-                f"同一角色。角色设定：{subject}。统一画风：{style}。{identity_lock}"
-                "保持脸型、五官、瞳色、发型、发色、肤色、身材比例、服装版型和配饰完全一致。"
+                f"Один и тот же персонаж. Описание персонажа: {subject}. Единый стиль: {style}. {identity_lock}"
+                "Сохранять форму лица, черты, цвет глаз, причёску, цвет волос, цвет кожи, пропорции тела, крой одежды и аксессуары полностью идентичными."
             )
         images = []
 
@@ -450,7 +456,7 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "AICG3D_CardSettingsFive": "1 角色/场景卡型设置 · 9种卡版",
-    "AICG3D_Qwen21ModelLoader": "2 千问 Image 2.1 模型选择",
-    "AICG3D_CharacterCardGeneratorSingle": "3 角色/场景逐格生成与排版 · 一键完成",
+    "AICG3D_CardSettingsFive": "1 Настройка типа карты персонажа/сцены · 9 макетов",
+    "AICG3D_Qwen21ModelLoader": "2 Выбор модели Qwen Image 2.1",
+    "AICG3D_CharacterCardGeneratorSingle": "3 Поячеечная генерация и вёрстка · готово",
 }

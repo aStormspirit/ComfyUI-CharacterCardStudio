@@ -134,14 +134,14 @@ def _fit_image(
 
 
 def _draw_placeholder_icon(draw, image_box, role, image_w, image_h):
-    """在空格里画极简轮廓，提示AI这个格子该放什么内容类型。"""
+    """Draw a minimal silhouette in empty cells to hint content type to the model."""
     cx = image_box[0] + image_w // 2
     cy = image_box[1] + int(image_h * 0.38)
     icon_color = (200, 205, 212)
     head_r = max(6, int(min(image_w, image_h) * 0.12))
 
     if role in ("portrait", "expression"):
-        # 头肩轮廓
+        # Head-and-shoulders silhouette
         draw.ellipse((cx - head_r, cy - head_r, cx + head_r, cy + head_r), fill=icon_color)
         shoulder_w = head_r * 2
         shoulder_y = cy + head_r
@@ -150,7 +150,7 @@ def _draw_placeholder_icon(draw, image_box, role, image_w, image_h):
             radius=head_r // 2, fill=icon_color,
         )
     elif role in ("turnaround", "hero"):
-        # 全身轮廓（头+身+腿）
+        # Full-body silhouette (head + torso + legs)
         body_h = int(image_h * 0.5)
         draw.ellipse((cx - head_r, cy - head_r, cx + head_r, cy + head_r), fill=icon_color)
         body_top = cy + head_r
@@ -186,12 +186,12 @@ def _draw_placeholder_icon(draw, image_box, role, image_w, image_h):
         for offset in (-box // 2, 0, box // 2):
             draw.line((cx - box, cy + offset, cx + box, cy + offset), fill=icon_color, width=max(1, line_w // 2))
     elif role == "detail":
-        # 细节格：画一个小圆点/纹理示意
+        # Detail cell: small dots / texture hint
         dot_r = max(4, int(min(image_w, image_h) * 0.06))
         for dx, dy in [(-dot_r * 2, -dot_r), (0, 0), (dot_r * 2, -dot_r), (-dot_r, dot_r), (dot_r, dot_r)]:
             draw.ellipse((cx + dx - dot_r, cy + dy - dot_r, cx + dx + dot_r, cy + dy + dot_r), fill=icon_color)
     else:
-        # hero/自定义：画个大方框
+        # hero / custom: large rounded box
         box = max(8, int(min(image_w, image_h) * 0.15))
         draw.rounded_rectangle((cx - box, cy - box, cx + box, cy + box), radius=box // 3, outline=icon_color, width=max(2, box // 6))
 
@@ -222,7 +222,7 @@ def _draw_cell(
     source = _load_image(slot.get("image", ""), slot.get("subfolder", ""))
 
     if source is not None and cell.get("mirror"):
-        # 右侧面格：自动水平镜像，保证左右侧面方向相反（不依赖模型自觉）
+        # Right-side cell: mirror horizontally so left/right profiles face opposite ways
         source = ImageOps.mirror(source)
 
     if source is not None:
@@ -248,7 +248,7 @@ def _draw_cell(
         )
         _draw_placeholder_icon(draw, image_box, role, image_w, image_h)
         if show_labels:
-            label = str(slot.get("label") or "参考画格")
+            label = str(slot.get("label") or "Справочная ячейка")
             _draw_text(
                 draw,
                 (image_box[0] + image_w // 2, image_box[1] + image_h - max(18, int(image_h * 0.12))),
@@ -267,7 +267,7 @@ def _draw_cell(
             radius=max(3, int(caption_h * 0.25)),
             fill=(255, 255, 255),
         )
-        label = str(slot.get("label") or "画格")
+        label = str(slot.get("label") or "Ячейка")
         _draw_text(
             draw,
             (x + padding, caption_top + caption_h // 2),
@@ -301,8 +301,8 @@ def render_layout(state: dict[str, Any], template: dict[str, Any]) -> Image.Imag
     draw.rectangle((0, 0, width, rule_h), fill=accent)
 
     if show_labels:
-        title = str(state.get("title") or "未命名角色")
-        subtitle = str(state.get("subtitle") or template.get("name") or "角色设定卡")
+        title = str(state.get("title") or "Безымянный персонаж")
+        subtitle = str(state.get("subtitle") or template.get("name") or "Карта персонажа")
         _draw_text(
             draw,
             (int(width * 0.025), int(height * 0.035)),

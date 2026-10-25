@@ -1,8 +1,8 @@
-﻿{
-  "id": "e4b9c7d2-4c34-4a13-8a77-roleawarecardqwen21",
+{
+  "id": "e4b9c7d2-4c34-4a13-8a77-roleawarepromptqwen21",
   "revision": 0,
   "last_node_id": 503,
-  "last_link_id": 100,
+  "last_link_id": 92,
   "nodes": [
     {
       "id": 1,
@@ -21,8 +21,8 @@
       "inputs": [],
       "outputs": [
         {
-          "label": "正面全身",
-          "name": "正面全身",
+          "label": "Полный рост анфас",
+          "name": "Полный рост анфас",
           "type": "STRING",
           "slot_index": 0,
           "links": [
@@ -30,110 +30,110 @@
           ]
         },
         {
-          "label": "侧面全身",
-          "name": "侧面全身",
+          "label": "Полный рост в профиль",
+          "name": "Полный рост в профиль",
           "type": "STRING",
           "slot_index": 1,
           "links": [
-            13
+            12
           ]
         },
         {
-          "label": "背面全身",
-          "name": "背面全身",
+          "label": "Полный рост со спины",
+          "name": "Полный рост со спины",
           "type": "STRING",
           "slot_index": 2,
           "links": [
-            25
+            23
           ]
         },
         {
-          "label": "头像",
-          "name": "头像",
+          "label": "портрет",
+          "name": "портрет",
           "type": "STRING",
           "slot_index": 3,
           "links": [
-            37
+            34
           ]
         },
         {
-          "label": "动作A",
-          "name": "动作A",
+          "label": "Действие A",
+          "name": "Действие A",
           "type": "STRING",
           "slot_index": 4,
           "links": [
-            49
+            45
           ]
         },
         {
-          "label": "动作B",
-          "name": "动作B",
+          "label": "Действие B",
+          "name": "Действие B",
           "type": "STRING",
           "slot_index": 5,
           "links": [
-            61
+            56
           ]
         },
         {
-          "label": "表情组",
-          "name": "表情组",
+          "label": "Набор эмоций",
+          "name": "Набор эмоций",
           "type": "STRING",
           "slot_index": 6,
           "links": [
-            73
+            67
           ]
         },
         {
-          "label": "细节组",
-          "name": "细节组",
+          "label": "Набор деталей",
+          "name": "Набор деталей",
           "type": "STRING",
           "slot_index": 7,
           "links": [
-            85
+            78
           ]
         },
         {
-          "label": "负面提示词",
-          "name": "负面提示词",
+          "label": "Негативный промпт",
+          "name": "Негативный промпт",
           "type": "STRING",
           "slot_index": 8,
           "links": [
             2,
-            14,
-            26,
-            38,
-            50,
-            62,
-            74,
-            86
+            13,
+            24,
+            35,
+            46,
+            57,
+            68,
+            79
           ]
         },
         {
-          "label": "卡版配置",
-          "name": "卡版配置",
+          "label": "Конфиг макета",
+          "name": "Конфиг макета",
           "type": "STRING",
           "slot_index": 9,
           "links": [
-            97
+            89
           ]
         },
         {
-          "label": "版式引导图",
-          "name": "版式引导图",
+          "label": "Направляющая макета",
+          "name": "Направляющая макета",
           "type": "IMAGE",
           "slot_index": 10,
           "links": null
         },
         {
-          "label": "宽度",
-          "name": "宽度",
+          "label": "ширина",
+          "name": "ширина",
           "type": "INT",
           "slot_index": 11,
           "links": null
         },
         {
-          "label": "高度",
-          "name": "高度",
+          "label": "высота",
+          "name": "высота",
           "type": "INT",
           "slot_index": 12,
           "links": null
@@ -143,79 +143,12 @@
         "Node name for S&R": "AICG3D_CharacterCardAssetPrompt"
       },
       "widgets_values": [
-        "expr_body_8 | 表情4格+全身4格(2x4)",
-        "原创男性角色，20岁，黑色短发，灰蓝色眼睛，清瘦脸型，深灰短袖、黑色长裤和白色运动鞋。",
-        "未命名角色",
-        "电影级角色设定，干净背景，柔和棚拍光，专业角色资产",
+        "expr_body_8 | 8 ячеек · Эмоции",
+        "Оригинальный мужской персонаж, 20 лет, короткие чёрные волосы, серо-голубые глаза, худое лицо, тёмно-серая футболка, чёрные брюки и белые кроссовки.",
+        "Безымянный персонаж",
+        "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональные ассеты",
         false,
-        "完整显示"
-      ]
-    },
-    {
-      "id": 100,
-      "type": "LoadImage",
-      "pos": [
-        -3060,
-        120
-      ],
-      "size": [
-        330,
-        360
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "图像",
-          "name": "image",
-          "type": "COMBO",
-          "widget": {
-            "name": "image"
-          },
-          "link": null
-        },
-        {
-          "label": "上传",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "label": "图像",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            3,
-            15,
-            27,
-            39,
-            51,
-            63,
-            75,
-            87
-          ]
-        },
-        {
-          "label": "遮罩",
-          "name": "MASK",
-          "type": "MASK",
-          "slot_index": 1,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "",
-        "image"
+        "Полностью"
       ]
     },
     {
@@ -234,8 +167,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "UNET名称",
-          "localized_name": "UNET名称",
+          "label": "UNETназвание",
+          "localized_name": "UNETназвание",
           "name": "unet_name",
           "type": "COMBO",
           "widget": {
@@ -245,7 +178,7 @@
         },
         {
           "label": "weight_dtype",
-          "localized_name": "剪枝类型",
+          "localized_name": "Тип dtype",
           "name": "weight_dtype",
           "type": "COMBO",
           "widget": {
@@ -256,20 +189,20 @@
       ],
       "outputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "MODEL",
           "type": "MODEL",
           "slot_index": 0,
           "links": [
-            6,
-            18,
-            30,
-            42,
-            54,
-            66,
-            78,
-            90
+            5,
+            16,
+            27,
+            38,
+            49,
+            60,
+            71,
+            82
           ]
         }
       ],
@@ -297,8 +230,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "CLIP名称",
-          "localized_name": "CLIP名称",
+          "label": "CLIPназвание",
+          "localized_name": "CLIPназвание",
           "name": "clip_name",
           "type": "COMBO",
           "widget": {
@@ -307,8 +240,8 @@
           "link": null
         },
         {
-          "label": "类型",
-          "localized_name": "类型",
+          "label": "Тип",
+          "localized_name": "Тип",
           "name": "type",
           "type": "COMBO",
           "widget": {
@@ -317,8 +250,8 @@
           "link": null
         },
         {
-          "label": "加载设备",
-          "localized_name": "加载设备",
+          "label": "Устройство",
+          "localized_name": "Устройство",
           "name": "device",
           "shape": 7,
           "type": "COMBO",
@@ -336,14 +269,14 @@
           "type": "CLIP",
           "slot_index": 0,
           "links": [
-            4,
-            16,
-            28,
-            40,
-            52,
-            64,
-            76,
-            88
+            3,
+            14,
+            25,
+            36,
+            47,
+            58,
+            69,
+            80
           ]
         }
       ],
@@ -372,8 +305,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "VAE名称",
-          "localized_name": "VAE名称",
+          "label": "VAEназвание",
+          "localized_name": "VAEназвание",
           "name": "vae_name",
           "type": "COMBO",
           "widget": {
@@ -390,22 +323,22 @@
           "type": "VAE",
           "slot_index": 0,
           "links": [
-            5,
-            11,
-            17,
-            23,
-            29,
-            35,
-            41,
-            47,
-            53,
+            4,
+            10,
+            15,
+            21,
+            26,
+            32,
+            37,
+            43,
+            48,
+            54,
             59,
             65,
-            71,
-            77,
-            83,
-            89,
-            95
+            70,
+            76,
+            81,
+            87
           ]
         }
       ],
@@ -435,21 +368,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 4
+          "link": 3
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 3
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 5
+          "link": 4
         },
         {
           "localized_name": "prompt",
@@ -486,7 +419,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            7
+            6
           ]
         },
         {
@@ -495,7 +428,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            8
+            7
           ]
         },
         {
@@ -532,7 +465,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -542,7 +475,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -552,7 +485,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -569,7 +502,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            9
+            8
           ]
         }
       ],
@@ -598,36 +531,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
+          "link": 5
+        },
+        {
+          "label": "Позитив",
+          "localized_name": "Позитив",
+          "name": "positive",
+          "type": "CONDITIONING",
           "link": 6
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
-          "name": "positive",
+          "label": "Негатив",
+          "localized_name": "Негатив",
+          "name": "negative",
           "type": "CONDITIONING",
           "link": 7
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
-          "name": "negative",
-          "type": "CONDITIONING",
+          "label": "Latent",
+          "localized_name": "Latent-изображение",
+          "name": "latent_image",
+          "type": "LATENT",
           "link": 8
         },
         {
-          "label": "Latent",
-          "localized_name": "Latent图像",
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 9
-        },
-        {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -636,8 +569,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -656,8 +589,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -666,8 +599,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -676,8 +609,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -694,7 +627,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            10
+            9
           ]
         }
       ],
@@ -731,25 +664,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 10
+          "link": 9
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 11
+          "link": 10
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            12
+            11
           ]
         }
       ],
@@ -777,21 +710,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 16
+          "link": 14
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 15
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 17
+          "link": 15
         },
         {
           "localized_name": "prompt",
@@ -800,7 +733,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 13
+          "link": 12
         },
         {
           "localized_name": "negative_prompt",
@@ -809,7 +742,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 14
+          "link": 13
         },
         {
           "localized_name": "resolution",
@@ -828,7 +761,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            19
+            17
           ]
         },
         {
@@ -837,7 +770,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            20
+            18
           ]
         },
         {
@@ -874,7 +807,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -884,7 +817,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -894,7 +827,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -911,7 +844,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            21
+            19
           ]
         }
       ],
@@ -940,36 +873,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
+          "link": 16
+        },
+        {
+          "label": "Позитив",
+          "localized_name": "Позитив",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 17
+        },
+        {
+          "label": "Негатив",
+          "localized_name": "Негатив",
+          "name": "negative",
+          "type": "CONDITIONING",
           "link": 18
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
-          "name": "positive",
-          "type": "CONDITIONING",
+          "label": "Latent",
+          "localized_name": "Latent-изображение",
+          "name": "latent_image",
+          "type": "LATENT",
           "link": 19
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 20
-        },
-        {
-          "label": "Latent",
-          "localized_name": "Latent图像",
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 21
-        },
-        {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -978,8 +911,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -998,8 +931,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -1008,8 +941,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -1018,8 +951,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -1036,7 +969,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            22
+            20
           ]
         }
       ],
@@ -1073,25 +1006,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 22
+          "link": 20
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 23
+          "link": 21
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            24
+            22
           ]
         }
       ],
@@ -1119,21 +1052,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 28
+          "link": 25
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 27
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 29
+          "link": 26
         },
         {
           "localized_name": "prompt",
@@ -1142,7 +1075,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 25
+          "link": 23
         },
         {
           "localized_name": "negative_prompt",
@@ -1151,7 +1084,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 26
+          "link": 24
         },
         {
           "localized_name": "resolution",
@@ -1170,7 +1103,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            31
+            28
           ]
         },
         {
@@ -1179,7 +1112,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            32
+            29
           ]
         },
         {
@@ -1216,7 +1149,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -1226,7 +1159,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -1236,7 +1169,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -1253,7 +1186,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            33
+            30
           ]
         }
       ],
@@ -1282,36 +1215,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 30
+          "link": 27
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 31
+          "link": 28
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 32
+          "link": 29
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 33
+          "link": 30
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -1320,8 +1253,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -1340,8 +1273,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -1350,8 +1283,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -1360,8 +1293,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -1378,7 +1311,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            34
+            31
           ]
         }
       ],
@@ -1415,25 +1348,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 34
+          "link": 31
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 35
+          "link": 32
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            36
+            33
           ]
         }
       ],
@@ -1461,21 +1394,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 40
+          "link": 36
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 39
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 41
+          "link": 37
         },
         {
           "localized_name": "prompt",
@@ -1484,7 +1417,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 37
+          "link": 34
         },
         {
           "localized_name": "negative_prompt",
@@ -1493,7 +1426,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 38
+          "link": 35
         },
         {
           "localized_name": "resolution",
@@ -1512,7 +1445,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            43
+            39
           ]
         },
         {
@@ -1521,7 +1454,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            44
+            40
           ]
         },
         {
@@ -1558,7 +1491,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -1568,7 +1501,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -1578,7 +1511,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -1595,7 +1528,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            45
+            41
           ]
         }
       ],
@@ -1624,36 +1557,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 42
+          "link": 38
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 43
+          "link": 39
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 44
+          "link": 40
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 45
+          "link": 41
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -1662,8 +1595,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -1682,8 +1615,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -1692,8 +1625,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -1702,8 +1635,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -1720,7 +1653,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            46
+            42
           ]
         }
       ],
@@ -1757,25 +1690,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 46
+          "link": 42
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 47
+          "link": 43
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            48
+            44
           ]
         }
       ],
@@ -1803,21 +1736,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 52
+          "link": 47
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 51
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 53
+          "link": 48
         },
         {
           "localized_name": "prompt",
@@ -1826,7 +1759,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 49
+          "link": 45
         },
         {
           "localized_name": "negative_prompt",
@@ -1835,7 +1768,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 50
+          "link": 46
         },
         {
           "localized_name": "resolution",
@@ -1854,7 +1787,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            55
+            50
           ]
         },
         {
@@ -1863,7 +1796,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            56
+            51
           ]
         },
         {
@@ -1900,7 +1833,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -1910,7 +1843,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -1920,7 +1853,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -1937,7 +1870,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            57
+            52
           ]
         }
       ],
@@ -1966,36 +1899,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 54
+          "link": 49
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 55
+          "link": 50
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 56
+          "link": 51
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 57
+          "link": 52
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -2004,8 +1937,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -2024,8 +1957,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -2034,8 +1967,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -2044,8 +1977,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -2062,7 +1995,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            58
+            53
           ]
         }
       ],
@@ -2099,25 +2032,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 58
+          "link": 53
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 59
+          "link": 54
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            60
+            55
           ]
         }
       ],
@@ -2145,21 +2078,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 64
+          "link": 58
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 63
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 65
+          "link": 59
         },
         {
           "localized_name": "prompt",
@@ -2168,7 +2101,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 61
+          "link": 56
         },
         {
           "localized_name": "negative_prompt",
@@ -2177,7 +2110,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 62
+          "link": 57
         },
         {
           "localized_name": "resolution",
@@ -2196,7 +2129,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            67
+            61
           ]
         },
         {
@@ -2205,7 +2138,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            68
+            62
           ]
         },
         {
@@ -2242,7 +2175,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -2252,7 +2185,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -2262,7 +2195,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -2279,7 +2212,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            69
+            63
           ]
         }
       ],
@@ -2308,36 +2241,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 66
+          "link": 60
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 67
+          "link": 61
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 68
+          "link": 62
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 69
+          "link": 63
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -2346,8 +2279,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -2366,8 +2299,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -2376,8 +2309,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -2386,8 +2319,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -2404,7 +2337,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            70
+            64
           ]
         }
       ],
@@ -2441,25 +2374,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 70
+          "link": 64
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 71
+          "link": 65
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            72
+            66
           ]
         }
       ],
@@ -2487,21 +2420,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 76
+          "link": 69
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 75
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 77
+          "link": 70
         },
         {
           "localized_name": "prompt",
@@ -2510,7 +2443,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 73
+          "link": 67
         },
         {
           "localized_name": "negative_prompt",
@@ -2519,7 +2452,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 74
+          "link": 68
         },
         {
           "localized_name": "resolution",
@@ -2538,7 +2471,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            79
+            72
           ]
         },
         {
@@ -2547,7 +2480,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            80
+            73
           ]
         },
         {
@@ -2584,7 +2517,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -2594,7 +2527,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -2604,7 +2537,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -2621,7 +2554,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            81
+            74
           ]
         }
       ],
@@ -2650,36 +2583,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 78
+          "link": 71
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 79
+          "link": 72
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 80
+          "link": 73
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 81
+          "link": 74
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -2688,8 +2621,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -2708,8 +2641,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -2718,8 +2651,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -2728,8 +2661,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -2746,7 +2679,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            82
+            75
           ]
         }
       ],
@@ -2783,25 +2716,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 82
+          "link": 75
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 83
+          "link": 76
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            84
+            77
           ]
         }
       ],
@@ -2829,21 +2762,21 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 88
+          "link": 80
         },
         {
           "localized_name": "image_1",
           "name": "images.image_1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 87
+          "link": null
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "shape": 7,
           "type": "VAE",
-          "link": 89
+          "link": 81
         },
         {
           "localized_name": "prompt",
@@ -2852,7 +2785,7 @@
           "widget": {
             "name": "prompt"
           },
-          "link": 85
+          "link": 78
         },
         {
           "localized_name": "negative_prompt",
@@ -2861,7 +2794,7 @@
           "widget": {
             "name": "negative_prompt"
           },
-          "link": 86
+          "link": 79
         },
         {
           "localized_name": "resolution",
@@ -2880,7 +2813,7 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            91
+            83
           ]
         },
         {
@@ -2889,7 +2822,7 @@
           "type": "CONDITIONING",
           "slot_index": 1,
           "links": [
-            92
+            84
           ]
         },
         {
@@ -2926,7 +2859,7 @@
       "inputs": [
         {
           "label": "width",
-          "localized_name": "宽度",
+          "localized_name": "ширина",
           "name": "width",
           "type": "INT",
           "widget": {
@@ -2936,7 +2869,7 @@
         },
         {
           "label": "height",
-          "localized_name": "高度",
+          "localized_name": "высота",
           "name": "height",
           "type": "INT",
           "widget": {
@@ -2946,7 +2879,7 @@
         },
         {
           "label": "batch_size",
-          "localized_name": "批次大小",
+          "localized_name": "Размер батча",
           "name": "batch_size",
           "type": "INT",
           "widget": {
@@ -2963,7 +2896,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            93
+            85
           ]
         }
       ],
@@ -2992,36 +2925,36 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "模型",
-          "localized_name": "模型",
+          "label": "Модель",
+          "localized_name": "Модель",
           "name": "model",
           "type": "MODEL",
-          "link": 90
+          "link": 82
         },
         {
-          "label": "正面条件",
-          "localized_name": "正面条件",
+          "label": "Позитив",
+          "localized_name": "Позитив",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 91
+          "link": 83
         },
         {
-          "label": "负面条件",
-          "localized_name": "负面条件",
+          "label": "Негатив",
+          "localized_name": "Негатив",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 92
+          "link": 84
         },
         {
           "label": "Latent",
-          "localized_name": "Latent图像",
+          "localized_name": "Latent-изображение",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 93
+          "link": 85
         },
         {
-          "label": "随机种",
-          "localized_name": "随机种",
+          "label": "Seed",
+          "localized_name": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -3030,8 +2963,8 @@
           "link": null
         },
         {
-          "label": "步数",
-          "localized_name": "步数",
+          "label": "Шаги",
+          "localized_name": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -3050,8 +2983,8 @@
           "link": null
         },
         {
-          "label": "采样器",
-          "localized_name": "采样器名称",
+          "label": "Сэмплер",
+          "localized_name": "Имя сэмплера",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -3060,8 +2993,8 @@
           "link": null
         },
         {
-          "label": "调度器",
-          "localized_name": "调度器",
+          "label": "Планировщик",
+          "localized_name": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -3070,8 +3003,8 @@
           "link": null
         },
         {
-          "label": "降噪",
-          "localized_name": "降噪",
+          "label": "Denoise",
+          "localized_name": "Denoise",
           "name": "denoise",
           "type": "FLOAT",
           "widget": {
@@ -3088,7 +3021,7 @@
           "type": "LATENT",
           "slot_index": 0,
           "links": [
-            94
+            86
           ]
         }
       ],
@@ -3125,25 +3058,25 @@
           "localized_name": "Latent",
           "name": "samples",
           "type": "LATENT",
-          "link": 94
+          "link": 86
         },
         {
           "label": "VAE",
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 95
+          "link": 87
         }
       ],
       "outputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            96
+            88
           ]
         }
       ],
@@ -3168,83 +3101,83 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "正面全身",
+          "label": "Полный рост анфас",
           "name": "full_front",
           "type": "IMAGE",
-          "link": 12
+          "link": 11
         },
         {
-          "label": "侧面全身",
+          "label": "Полный рост в профиль",
           "name": "full_profile",
           "type": "IMAGE",
-          "link": 24
+          "link": 22
         },
         {
-          "label": "背面全身",
+          "label": "Полный рост со спины",
           "name": "full_back",
           "type": "IMAGE",
-          "link": 36
+          "link": 33
         },
         {
-          "label": "动作A",
+          "label": "Действие A",
           "name": "action_a",
           "type": "IMAGE",
-          "link": 60
+          "link": 55
         },
         {
-          "label": "动作B",
+          "label": "Действие B",
           "name": "action_b",
           "type": "IMAGE",
-          "link": 72
+          "link": 66
         },
         {
-          "label": "头像",
+          "label": "портрет",
           "name": "headshot",
           "type": "IMAGE",
-          "link": 48
+          "link": 44
         },
         {
-          "label": "表情组",
+          "label": "Набор эмоций",
           "name": "expression_sheet",
           "type": "IMAGE",
-          "link": 84
+          "link": 77
         },
         {
-          "label": "细节组",
+          "label": "Набор деталей",
           "name": "detail_sheet",
           "type": "IMAGE",
-          "link": 96
+          "link": 88
         },
         {
-          "label": "卡版配置",
+          "label": "Конфиг макета",
           "name": "card_config",
           "type": "STRING",
-          "link": 97
+          "link": 89
         }
       ],
       "outputs": [
         {
-          "label": "角色卡",
-          "name": "角色卡",
+          "label": "Карта персонажа",
+          "name": "Карта персонажа",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            98,
-            99
+            90,
+            91
           ]
         },
         {
-          "label": "资产批次",
-          "name": "资产批次",
+          "label": "Пакет ассетов",
+          "name": "Пакет ассетов",
           "type": "IMAGE",
           "slot_index": 1,
           "links": [
-            100
+            92
           ]
         },
         {
-          "label": "组合报告",
-          "name": "组合报告",
+          "label": "Отчёт сборки",
+          "name": "Отчёт сборки",
           "type": "STRING",
           "slot_index": 2,
           "links": null
@@ -3271,11 +3204,11 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
-          "link": 98
+          "link": 90
         }
       ],
       "outputs": [],
@@ -3300,11 +3233,11 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
-          "link": 99
+          "link": 91
         }
       ],
       "outputs": [],
@@ -3312,7 +3245,7 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "角色卡_分项生成"
+        "Карта персонажа_Генерация ассетов"
       ]
     },
     {
@@ -3331,11 +3264,11 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
-          "link": 100
+          "link": 92
         }
       ],
       "outputs": [],
@@ -3364,14 +3297,6 @@
     ],
     [
       3,
-      100,
-      0,
-      101,
-      1,
-      "IMAGE"
-    ],
-    [
-      4,
       3,
       0,
       101,
@@ -3379,7 +3304,7 @@
       "CLIP"
     ],
     [
-      5,
+      4,
       4,
       0,
       101,
@@ -3387,7 +3312,7 @@
       "VAE"
     ],
     [
-      6,
+      5,
       2,
       0,
       301,
@@ -3395,7 +3320,7 @@
       "MODEL"
     ],
     [
-      7,
+      6,
       101,
       0,
       301,
@@ -3403,7 +3328,7 @@
       "CONDITIONING"
     ],
     [
-      8,
+      7,
       101,
       1,
       301,
@@ -3411,7 +3336,7 @@
       "CONDITIONING"
     ],
     [
-      9,
+      8,
       201,
       0,
       301,
@@ -3419,7 +3344,7 @@
       "LATENT"
     ],
     [
-      10,
+      9,
       301,
       0,
       401,
@@ -3427,7 +3352,7 @@
       "LATENT"
     ],
     [
-      11,
+      10,
       4,
       0,
       401,
@@ -3435,7 +3360,7 @@
       "VAE"
     ],
     [
-      12,
+      11,
       401,
       0,
       500,
@@ -3443,7 +3368,7 @@
       "IMAGE"
     ],
     [
-      13,
+      12,
       1,
       1,
       102,
@@ -3451,7 +3376,7 @@
       "STRING"
     ],
     [
-      14,
+      13,
       1,
       8,
       102,
@@ -3459,15 +3384,7 @@
       "STRING"
     ],
     [
-      15,
-      100,
-      0,
-      102,
-      1,
-      "IMAGE"
-    ],
-    [
-      16,
+      14,
       3,
       0,
       102,
@@ -3475,7 +3392,7 @@
       "CLIP"
     ],
     [
-      17,
+      15,
       4,
       0,
       102,
@@ -3483,7 +3400,7 @@
       "VAE"
     ],
     [
-      18,
+      16,
       2,
       0,
       302,
@@ -3491,7 +3408,7 @@
       "MODEL"
     ],
     [
-      19,
+      17,
       102,
       0,
       302,
@@ -3499,7 +3416,7 @@
       "CONDITIONING"
     ],
     [
-      20,
+      18,
       102,
       1,
       302,
@@ -3507,7 +3424,7 @@
       "CONDITIONING"
     ],
     [
-      21,
+      19,
       202,
       0,
       302,
@@ -3515,7 +3432,7 @@
       "LATENT"
     ],
     [
-      22,
+      20,
       302,
       0,
       402,
@@ -3523,7 +3440,7 @@
       "LATENT"
     ],
     [
-      23,
+      21,
       4,
       0,
       402,
@@ -3531,7 +3448,7 @@
       "VAE"
     ],
     [
-      24,
+      22,
       402,
       0,
       500,
@@ -3539,7 +3456,7 @@
       "IMAGE"
     ],
     [
-      25,
+      23,
       1,
       2,
       103,
@@ -3547,7 +3464,7 @@
       "STRING"
     ],
     [
-      26,
+      24,
       1,
       8,
       103,
@@ -3555,15 +3472,7 @@
       "STRING"
     ],
     [
-      27,
-      100,
-      0,
-      103,
-      1,
-      "IMAGE"
-    ],
-    [
-      28,
+      25,
       3,
       0,
       103,
@@ -3571,7 +3480,7 @@
       "CLIP"
     ],
     [
-      29,
+      26,
       4,
       0,
       103,
@@ -3579,7 +3488,7 @@
       "VAE"
     ],
     [
-      30,
+      27,
       2,
       0,
       303,
@@ -3587,7 +3496,7 @@
       "MODEL"
     ],
     [
-      31,
+      28,
       103,
       0,
       303,
@@ -3595,7 +3504,7 @@
       "CONDITIONING"
     ],
     [
-      32,
+      29,
       103,
       1,
       303,
@@ -3603,7 +3512,7 @@
       "CONDITIONING"
     ],
     [
-      33,
+      30,
       203,
       0,
       303,
@@ -3611,7 +3520,7 @@
       "LATENT"
     ],
     [
-      34,
+      31,
       303,
       0,
       403,
@@ -3619,7 +3528,7 @@
       "LATENT"
     ],
     [
-      35,
+      32,
       4,
       0,
       403,
@@ -3627,7 +3536,7 @@
       "VAE"
     ],
     [
-      36,
+      33,
       403,
       0,
       500,
@@ -3635,7 +3544,7 @@
       "IMAGE"
     ],
     [
-      37,
+      34,
       1,
       3,
       104,
@@ -3643,7 +3552,7 @@
       "STRING"
     ],
     [
-      38,
+      35,
       1,
       8,
       104,
@@ -3651,15 +3560,7 @@
       "STRING"
     ],
     [
-      39,
-      100,
-      0,
-      104,
-      1,
-      "IMAGE"
-    ],
-    [
-      40,
+      36,
       3,
       0,
       104,
@@ -3667,7 +3568,7 @@
       "CLIP"
     ],
     [
-      41,
+      37,
       4,
       0,
       104,
@@ -3675,7 +3576,7 @@
       "VAE"
     ],
     [
-      42,
+      38,
       2,
       0,
       304,
@@ -3683,7 +3584,7 @@
       "MODEL"
     ],
     [
-      43,
+      39,
       104,
       0,
       304,
@@ -3691,7 +3592,7 @@
       "CONDITIONING"
     ],
     [
-      44,
+      40,
       104,
       1,
       304,
@@ -3699,7 +3600,7 @@
       "CONDITIONING"
     ],
     [
-      45,
+      41,
       204,
       0,
       304,
@@ -3707,7 +3608,7 @@
       "LATENT"
     ],
     [
-      46,
+      42,
       304,
       0,
       404,
@@ -3715,7 +3616,7 @@
       "LATENT"
     ],
     [
-      47,
+      43,
       4,
       0,
       404,
@@ -3723,7 +3624,7 @@
       "VAE"
     ],
     [
-      48,
+      44,
       404,
       0,
       500,
@@ -3731,7 +3632,7 @@
       "IMAGE"
     ],
     [
-      49,
+      45,
       1,
       4,
       105,
@@ -3739,7 +3640,7 @@
       "STRING"
     ],
     [
-      50,
+      46,
       1,
       8,
       105,
@@ -3747,15 +3648,7 @@
       "STRING"
     ],
     [
-      51,
-      100,
-      0,
-      105,
-      1,
-      "IMAGE"
-    ],
-    [
-      52,
+      47,
       3,
       0,
       105,
@@ -3763,7 +3656,7 @@
       "CLIP"
     ],
     [
-      53,
+      48,
       4,
       0,
       105,
@@ -3771,7 +3664,7 @@
       "VAE"
     ],
     [
-      54,
+      49,
       2,
       0,
       305,
@@ -3779,7 +3672,7 @@
       "MODEL"
     ],
     [
-      55,
+      50,
       105,
       0,
       305,
@@ -3787,7 +3680,7 @@
       "CONDITIONING"
     ],
     [
-      56,
+      51,
       105,
       1,
       305,
@@ -3795,7 +3688,7 @@
       "CONDITIONING"
     ],
     [
-      57,
+      52,
       205,
       0,
       305,
@@ -3803,7 +3696,7 @@
       "LATENT"
     ],
     [
-      58,
+      53,
       305,
       0,
       405,
@@ -3811,7 +3704,7 @@
       "LATENT"
     ],
     [
-      59,
+      54,
       4,
       0,
       405,
@@ -3819,7 +3712,7 @@
       "VAE"
     ],
     [
-      60,
+      55,
       405,
       0,
       500,
@@ -3827,7 +3720,7 @@
       "IMAGE"
     ],
     [
-      61,
+      56,
       1,
       5,
       106,
@@ -3835,7 +3728,7 @@
       "STRING"
     ],
     [
-      62,
+      57,
       1,
       8,
       106,
@@ -3843,15 +3736,7 @@
       "STRING"
     ],
     [
-      63,
-      100,
-      0,
-      106,
-      1,
-      "IMAGE"
-    ],
-    [
-      64,
+      58,
       3,
       0,
       106,
@@ -3859,7 +3744,7 @@
       "CLIP"
     ],
     [
-      65,
+      59,
       4,
       0,
       106,
@@ -3867,7 +3752,7 @@
       "VAE"
     ],
     [
-      66,
+      60,
       2,
       0,
       306,
@@ -3875,7 +3760,7 @@
       "MODEL"
     ],
     [
-      67,
+      61,
       106,
       0,
       306,
@@ -3883,7 +3768,7 @@
       "CONDITIONING"
     ],
     [
-      68,
+      62,
       106,
       1,
       306,
@@ -3891,7 +3776,7 @@
       "CONDITIONING"
     ],
     [
-      69,
+      63,
       206,
       0,
       306,
@@ -3899,7 +3784,7 @@
       "LATENT"
     ],
     [
-      70,
+      64,
       306,
       0,
       406,
@@ -3907,7 +3792,7 @@
       "LATENT"
     ],
     [
-      71,
+      65,
       4,
       0,
       406,
@@ -3915,7 +3800,7 @@
       "VAE"
     ],
     [
-      72,
+      66,
       406,
       0,
       500,
@@ -3923,7 +3808,7 @@
       "IMAGE"
     ],
     [
-      73,
+      67,
       1,
       6,
       107,
@@ -3931,7 +3816,7 @@
       "STRING"
     ],
     [
-      74,
+      68,
       1,
       8,
       107,
@@ -3939,15 +3824,7 @@
       "STRING"
     ],
     [
-      75,
-      100,
-      0,
-      107,
-      1,
-      "IMAGE"
-    ],
-    [
-      76,
+      69,
       3,
       0,
       107,
@@ -3955,7 +3832,7 @@
       "CLIP"
     ],
     [
-      77,
+      70,
       4,
       0,
       107,
@@ -3963,7 +3840,7 @@
       "VAE"
     ],
     [
-      78,
+      71,
       2,
       0,
       307,
@@ -3971,7 +3848,7 @@
       "MODEL"
     ],
     [
-      79,
+      72,
       107,
       0,
       307,
@@ -3979,7 +3856,7 @@
       "CONDITIONING"
     ],
     [
-      80,
+      73,
       107,
       1,
       307,
@@ -3987,7 +3864,7 @@
       "CONDITIONING"
     ],
     [
-      81,
+      74,
       207,
       0,
       307,
@@ -3995,7 +3872,7 @@
       "LATENT"
     ],
     [
-      82,
+      75,
       307,
       0,
       407,
@@ -4003,7 +3880,7 @@
       "LATENT"
     ],
     [
-      83,
+      76,
       4,
       0,
       407,
@@ -4011,7 +3888,7 @@
       "VAE"
     ],
     [
-      84,
+      77,
       407,
       0,
       500,
@@ -4019,7 +3896,7 @@
       "IMAGE"
     ],
     [
-      85,
+      78,
       1,
       7,
       108,
@@ -4027,7 +3904,7 @@
       "STRING"
     ],
     [
-      86,
+      79,
       1,
       8,
       108,
@@ -4035,15 +3912,7 @@
       "STRING"
     ],
     [
-      87,
-      100,
-      0,
-      108,
-      1,
-      "IMAGE"
-    ],
-    [
-      88,
+      80,
       3,
       0,
       108,
@@ -4051,7 +3920,7 @@
       "CLIP"
     ],
     [
-      89,
+      81,
       4,
       0,
       108,
@@ -4059,7 +3928,7 @@
       "VAE"
     ],
     [
-      90,
+      82,
       2,
       0,
       308,
@@ -4067,7 +3936,7 @@
       "MODEL"
     ],
     [
-      91,
+      83,
       108,
       0,
       308,
@@ -4075,7 +3944,7 @@
       "CONDITIONING"
     ],
     [
-      92,
+      84,
       108,
       1,
       308,
@@ -4083,7 +3952,7 @@
       "CONDITIONING"
     ],
     [
-      93,
+      85,
       208,
       0,
       308,
@@ -4091,7 +3960,7 @@
       "LATENT"
     ],
     [
-      94,
+      86,
       308,
       0,
       408,
@@ -4099,7 +3968,7 @@
       "LATENT"
     ],
     [
-      95,
+      87,
       4,
       0,
       408,
@@ -4107,7 +3976,7 @@
       "VAE"
     ],
     [
-      96,
+      88,
       408,
       0,
       500,
@@ -4115,7 +3984,7 @@
       "IMAGE"
     ],
     [
-      97,
+      89,
       1,
       9,
       500,
@@ -4123,7 +3992,7 @@
       "STRING"
     ],
     [
-      98,
+      90,
       500,
       0,
       501,
@@ -4131,7 +4000,7 @@
       "IMAGE"
     ],
     [
-      99,
+      91,
       500,
       0,
       502,
@@ -4139,7 +4008,7 @@
       "IMAGE"
     ],
     [
-      100,
+      92,
       500,
       1,
       503,
@@ -4150,7 +4019,7 @@
   "groups": [
     {
       "id": 1,
-      "title": "角色输入与分项提示词",
+      "title": "Ввод персонажа и промпты ассетов",
       "bounding": [
         -3080,
         20,
@@ -4162,7 +4031,7 @@
     },
     {
       "id": 2,
-      "title": "千问 Image 2.1 · 六路独立生成",
+      "title": "Qwen Image 2.1 · 6 независимых генераций",
       "bounding": [
         -1880,
         0,
@@ -4174,7 +4043,7 @@
     },
     {
       "id": 3,
-      "title": "角色卡专业自动排版",
+      "title": "Профессиональная авто-вёрстка карты",
       "bounding": [
         600,
         600,

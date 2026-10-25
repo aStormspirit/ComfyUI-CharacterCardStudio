@@ -9,9 +9,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "workflows" / "角色卡_分项生成_QwenImage21.json"
-TARGET = ROOT / "workflows" / "角色卡_五种卡版_单线工作流.json"
-PROMPT_TARGET = ROOT / "workflows" / "角色卡_五种卡版_文生图单线工作流.json"
+BASE = ROOT / "workflows" / "карта_ассеты_QwenImage21.json"
+TARGET = ROOT / "workflows" / "карта_персонажа_9_макетов_линейный.json"
+PROMPT_TARGET = ROOT / "workflows" / "карта_персонажа_9_макетов_текст_линейный.json"
 
 
 def templates() -> dict[int, dict]:
@@ -62,20 +62,20 @@ def main() -> None:
         "order": 1,
         "mode": 0,
         "inputs": [
-            {"label": "参考图", "name": "reference_image", "type": "IMAGE", "link": None},
+            {"label": "Справочное изображение", "name": "reference_image", "type": "IMAGE", "link": None},
         ],
         "outputs": [
-            {"label": "角色卡设置", "name": "角色卡设置", "type": "STRING", "slot_index": 0, "links": None},
-            {"label": "参考图", "name": "参考图", "type": "IMAGE", "slot_index": 1, "links": None},
+            {"label": "Настройки карты", "name": "Настройки карты", "type": "STRING", "slot_index": 0, "links": None},
+            {"label": "Справочное изображение", "name": "Справочное изображение", "type": "IMAGE", "slot_index": 1, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_CardSettingsFive"},
         "widgets_values": [
-            "reference_profile_18 | 参考角色卡18格",
-            "原创男性角色，20岁，黑色短发，灰蓝色眼睛，清瘦脸型，深灰短袖、黑色长裤和白色运动鞋。",
-            "未命名角色",
-            "电影级角色设定，干净背景，柔和棚拍光，专业角色资产",
+            "head_body_6 | 6 ячеек · Три вида",
+            "Оригинальный мужской персонаж, 20 лет, чёрные короткие волосы, серо-голубые глаза, худощавое лицо, тёмно-серая футболка, чёрные брюки и белые кроссовки.",
+            "Безымянный персонаж",
+            "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональные ассеты",
             False,
-            "完整显示",
+            "Полностью",
         ],
     }
     add(settings)
@@ -89,20 +89,20 @@ def main() -> None:
         "order": 2,
         "mode": 0,
         "inputs": [
-            {"label": "角色卡设置", "name": "settings", "type": "STRING", "link": None},
-            {"label": "UNET名称", "name": "unet_name", "type": "COMBO", "widget": {"name": "unet_name"}, "link": None},
-            {"label": "CLIP名称", "name": "clip_name", "type": "COMBO", "widget": {"name": "clip_name"}, "link": None},
-            {"label": "VAE名称", "name": "vae_name", "type": "COMBO", "widget": {"name": "vae_name"}, "link": None},
-            {"label": "权重类型", "name": "weight_dtype", "type": "COMBO", "widget": {"name": "weight_dtype"}, "link": None},
-            {"label": "设备", "name": "device", "type": "COMBO", "widget": {"name": "device"}, "link": None},
-            {"label": "参考图", "name": "reference_image", "type": "IMAGE", "link": None},
+            {"label": "Настройки карты", "name": "settings", "type": "STRING", "link": None},
+            {"label": "Имя UNET", "name": "unet_name", "type": "COMBO", "widget": {"name": "unet_name"}, "link": None},
+            {"label": "Имя CLIP", "name": "clip_name", "type": "COMBO", "widget": {"name": "clip_name"}, "link": None},
+            {"label": "Имя VAE", "name": "vae_name", "type": "COMBO", "widget": {"name": "vae_name"}, "link": None},
+            {"label": "Тип весов", "name": "weight_dtype", "type": "COMBO", "widget": {"name": "weight_dtype"}, "link": None},
+            {"label": "Устройство", "name": "device", "type": "COMBO", "widget": {"name": "device"}, "link": None},
+            {"label": "Справочное изображение", "name": "reference_image", "type": "IMAGE", "link": None},
         ],
         "outputs": [
             {"label": "MODEL", "name": "MODEL", "type": "MODEL", "slot_index": 0, "links": None},
             {"label": "CLIP", "name": "CLIP", "type": "CLIP", "slot_index": 1, "links": None},
             {"label": "VAE", "name": "VAE", "type": "VAE", "slot_index": 2, "links": None},
-            {"label": "角色卡设置", "name": "角色卡设置", "type": "STRING", "slot_index": 3, "links": None},
-            {"label": "参考图", "name": "参考图", "type": "IMAGE", "slot_index": 4, "links": None},
+            {"label": "Настройки карты", "name": "Настройки карты", "type": "STRING", "slot_index": 3, "links": None},
+            {"label": "Справочное изображение", "name": "Справочное изображение", "type": "IMAGE", "slot_index": 4, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_Qwen21ModelLoader"},
         "widgets_values": [
@@ -124,21 +124,21 @@ def main() -> None:
         "order": 3,
         "mode": 0,
         "inputs": [
-            {"label": "角色卡设置", "name": "settings", "type": "STRING", "link": None},
+            {"label": "Настройки карты", "name": "settings", "type": "STRING", "link": None},
             {"label": "MODEL", "name": "model", "type": "MODEL", "link": None},
             {"label": "CLIP", "name": "clip", "type": "CLIP", "link": None},
             {"label": "VAE", "name": "vae", "type": "VAE", "link": None},
-            {"label": "种子", "name": "seed", "type": "INT", "widget": {"name": "seed"}, "link": None},
-            {"label": "步数", "name": "steps", "type": "INT", "widget": {"name": "steps"}, "link": None},
+            {"label": "Сид", "name": "seed", "type": "INT", "widget": {"name": "seed"}, "link": None},
+            {"label": "Шаги", "name": "steps", "type": "INT", "widget": {"name": "steps"}, "link": None},
             {"label": "CFG", "name": "cfg", "type": "FLOAT", "widget": {"name": "cfg"}, "link": None},
-            {"label": "采样器", "name": "sampler_name", "type": "COMBO", "widget": {"name": "sampler_name"}, "link": None},
-            {"label": "调度器", "name": "scheduler", "type": "COMBO", "widget": {"name": "scheduler"}, "link": None},
-            {"label": "参考图", "name": "reference_image", "type": "IMAGE", "link": None},
+            {"label": "Семплер", "name": "sampler_name", "type": "COMBO", "widget": {"name": "sampler_name"}, "link": None},
+            {"label": "Планировщик", "name": "scheduler", "type": "COMBO", "widget": {"name": "scheduler"}, "link": None},
+            {"label": "Справочное изображение", "name": "reference_image", "type": "IMAGE", "link": None},
         ],
         "outputs": [
-            {"label": "角色卡", "name": "角色卡", "type": "IMAGE", "slot_index": 0, "links": None},
-            {"label": "资产批次", "name": "资产批次", "type": "IMAGE", "slot_index": 1, "links": None},
-            {"label": "生成报告", "name": "生成报告", "type": "STRING", "slot_index": 2, "links": None},
+            {"label": "Карта персонажа", "name": "Карта персонажа", "type": "IMAGE", "slot_index": 0, "links": None},
+            {"label": "Пакет ассетов", "name": "Пакет ассетов", "type": "IMAGE", "slot_index": 1, "links": None},
+            {"label": "Отчёт генерации", "name": "Отчёт генерации", "type": "STRING", "slot_index": 2, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_CharacterCardGeneratorSingle"},
         "widgets_values": [42, 8, 3.0, "euler", "simple"],
@@ -153,7 +153,7 @@ def main() -> None:
     save = copy.deepcopy(base[502])
     reset(save, 5, [380, 930], 5)
     save["size"] = [620, 760]
-    save["widgets_values"] = ["角色卡_五种版式"]
+    save["widgets_values"] = ["карта_9_макетов"]
     add(save)
 
     assets_preview = copy.deepcopy(base[503])
@@ -181,7 +181,7 @@ def main() -> None:
         "nodes": nodes,
         "links": links,
         "groups": [
-            {"id": 1, "title": "一条主线：设置 → 模型 → 生成 → 成品", "bounding": [-1740, 20, 2920, 1740], "color": "#3f789e", "flags": {}},
+            {"id": 1, "title": "Одна линия: настройки → модель → генерация → результат", "bounding": [-1740, 20, 2920, 1740], "color": "#3f789e", "flags": {}},
         ],
         "config": {},
         "extra": {"frontendVersion": "1.53.6"},

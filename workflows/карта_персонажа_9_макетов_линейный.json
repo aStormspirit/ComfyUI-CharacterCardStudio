@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "f6d7c551-5fe8-4d5a-9b20-fivecardlinear",
   "revision": 0,
   "last_node_id": 6,
@@ -20,7 +20,7 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
+          "label": "Изображение",
           "name": "image",
           "type": "COMBO",
           "widget": {
@@ -29,7 +29,7 @@
           "link": null
         },
         {
-          "label": "上传",
+          "label": "Загрузка",
           "name": "upload",
           "type": "IMAGEUPLOAD",
           "widget": {
@@ -40,7 +40,7 @@
       ],
       "outputs": [
         {
-          "label": "图像",
+          "label": "Изображение",
           "name": "IMAGE",
           "type": "IMAGE",
           "slot_index": 0,
@@ -49,7 +49,7 @@
           ]
         },
         {
-          "label": "遮罩",
+          "label": "Маска",
           "name": "MASK",
           "type": "MASK",
           "slot_index": 1,
@@ -80,7 +80,7 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "参考图",
+          "label": "Референс",
           "name": "reference_image",
           "type": "IMAGE",
           "link": 1
@@ -88,8 +88,8 @@
       ],
       "outputs": [
         {
-          "label": "角色卡设置",
-          "name": "角色卡设置",
+          "label": "Настройки карты",
+          "name": "Настройки карты",
           "type": "STRING",
           "slot_index": 0,
           "links": [
@@ -97,8 +97,8 @@
           ]
         },
         {
-          "label": "参考图",
-          "name": "参考图",
+          "label": "Референс",
+          "name": "Референс",
           "type": "IMAGE",
           "slot_index": 1,
           "links": [
@@ -110,12 +110,12 @@
         "Node name for S&R": "AICG3D_CardSettingsFive"
       },
       "widgets_values": [
-        "expr_body_8 | 表情4格+全身4格(2x4)",
-        "原创男性角色，20岁，黑色短发，灰蓝色眼睛，清瘦脸型，深灰短袖、黑色长裤和白色运动鞋。",
-        "未命名角色",
-        "电影级角色设定，干净背景，柔和棚拍光，专业角色资产",
+        "expr_body_8 | 8 ячеек · Эмоции",
+        "Оригинальный мужской персонаж, 20 лет, короткие чёрные волосы, серо-голубые глаза, худое лицо, тёмно-серая футболка, чёрные брюки и белые кроссовки.",
+        "Безымянный персонаж",
+        "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональные ассеты",
         false,
-        "完整显示"
+        "Полностью"
       ]
     },
     {
@@ -134,13 +134,13 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "角色卡设置",
+          "label": "Настройки карты",
           "name": "settings",
           "type": "STRING",
           "link": 2
         },
         {
-          "label": "UNET名称",
+          "label": "UNETназвание",
           "name": "unet_name",
           "type": "COMBO",
           "widget": {
@@ -149,7 +149,7 @@
           "link": null
         },
         {
-          "label": "CLIP名称",
+          "label": "CLIPназвание",
           "name": "clip_name",
           "type": "COMBO",
           "widget": {
@@ -158,7 +158,7 @@
           "link": null
         },
         {
-          "label": "VAE名称",
+          "label": "VAEназвание",
           "name": "vae_name",
           "type": "COMBO",
           "widget": {
@@ -167,7 +167,7 @@
           "link": null
         },
         {
-          "label": "权重类型",
+          "label": "Тип весов",
           "name": "weight_dtype",
           "type": "COMBO",
           "widget": {
@@ -176,7 +176,7 @@
           "link": null
         },
         {
-          "label": "设备",
+          "label": "Устройство",
           "name": "device",
           "type": "COMBO",
           "widget": {
@@ -185,7 +185,7 @@
           "link": null
         },
         {
-          "label": "参考图",
+          "label": "Референс",
           "name": "reference_image",
           "type": "IMAGE",
           "link": 3
@@ -220,8 +220,8 @@
           ]
         },
         {
-          "label": "角色卡设置",
-          "name": "角色卡设置",
+          "label": "Настройки карты",
+          "name": "Настройки карты",
           "type": "STRING",
           "slot_index": 3,
           "links": [
@@ -229,8 +229,8 @@
           ]
         },
         {
-          "label": "参考图",
-          "name": "参考图",
+          "label": "Референс",
+          "name": "Референс",
           "type": "IMAGE",
           "slot_index": 4,
           "links": [
@@ -265,7 +265,7 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "角色卡设置",
+          "label": "Настройки карты",
           "name": "settings",
           "type": "STRING",
           "link": 4
@@ -289,7 +289,7 @@
           "link": 7
         },
         {
-          "label": "种子",
+          "label": "Seed",
           "name": "seed",
           "type": "INT",
           "widget": {
@@ -298,7 +298,7 @@
           "link": null
         },
         {
-          "label": "步数",
+          "label": "Шаги",
           "name": "steps",
           "type": "INT",
           "widget": {
@@ -316,7 +316,7 @@
           "link": null
         },
         {
-          "label": "采样器",
+          "label": "Сэмплер",
           "name": "sampler_name",
           "type": "COMBO",
           "widget": {
@@ -325,7 +325,7 @@
           "link": null
         },
         {
-          "label": "调度器",
+          "label": "Планировщик",
           "name": "scheduler",
           "type": "COMBO",
           "widget": {
@@ -334,7 +334,7 @@
           "link": null
         },
         {
-          "label": "参考图",
+          "label": "Референс",
           "name": "reference_image",
           "type": "IMAGE",
           "link": 8
@@ -342,8 +342,8 @@
       ],
       "outputs": [
         {
-          "label": "角色卡",
-          "name": "角色卡",
+          "label": "Карта персонажа",
+          "name": "Карта персонажа",
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
@@ -352,8 +352,8 @@
           ]
         },
         {
-          "label": "资产批次",
-          "name": "资产批次",
+          "label": "Пакет ассетов",
+          "name": "Пакет ассетов",
           "type": "IMAGE",
           "slot_index": 1,
           "links": [
@@ -361,8 +361,8 @@
           ]
         },
         {
-          "label": "生成报告",
-          "name": "生成报告",
+          "label": "Отчёт генерации",
+          "name": "Отчёт генерации",
           "type": "STRING",
           "slot_index": 2,
           "links": null
@@ -395,8 +395,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
           "link": 9
@@ -424,8 +424,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
           "link": 10
@@ -436,7 +436,7 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "角色卡_五种版式"
+        "Карта персонажа · 9 макетов"
       ]
     },
     {
@@ -455,8 +455,8 @@
       "mode": 0,
       "inputs": [
         {
-          "label": "图像",
-          "localized_name": "图像",
+          "label": "Изображение",
+          "localized_name": "Изображение",
           "name": "images",
           "type": "IMAGE",
           "link": 11
@@ -562,7 +562,7 @@
   "groups": [
     {
       "id": 1,
-      "title": "一条主线：设置 → 模型 → 生成 → 成品",
+      "title": "Одна линия: настройки → модель → генерация → результат",
       "bounding": [
         -1740,
         20,

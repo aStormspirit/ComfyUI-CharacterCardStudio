@@ -38,40 +38,40 @@ def main() -> None:
                 assert _overlap(cell, other) <= 0.000001, (template["id"], cell["id"], other["id"])
 
         state, resolved = normalise_state(
-            {"templateId": template["id"], "title": "测试角色"},
+            {"templateId": template["id"], "title": "Тестовый персонаж"},
             int(template["width"]),
             int(template["height"]),
         )
         prompt = compile_prompt(state, resolved)
-        assert prompt.count("位置：") == len(cells), template["id"]
-        assert "右半区只有3行" not in prompt, template["id"]
-        assert f"严格保留输入图1中的 {len(cells)} 个矩形画格" in prompt
-        assert "在画布顶部显示标题" not in prompt
+        assert prompt.count("Положение:") == len(cells), template["id"]
+        assert "в правой половине только 3 ряда" not in prompt, template["id"]
+        assert f"Строго сохрани {len(cells)} прямоугольных ячеек из входного изображения 1" in prompt
+        assert "Вверху холста покажи заголовок" not in prompt
 
     scene = next(template for template in TEMPLATES if template.get("kind") == "scene")
     scene_state, scene_resolved = normalise_state(
-        {"templateId": scene["id"], "title": "测试场景"},
+        {"templateId": scene["id"], "title": "Тестовая сцена"},
         int(scene["width"]),
         int(scene["height"]),
     )
     scene_prompt = compile_prompt(scene_state, scene_resolved)
-    assert scene_prompt.count("位置：") == len(scene["cells"])
-    assert "所有视角必须属于同一个场景" in scene_prompt
-    assert "0°、90°、180°、270°" in scene_prompt
-    assert "360°全景长条" in scene_prompt
-    assert "不新增与参考无关的人物或动物" in scene_prompt
-    assert "所有人物画格必须是同一个人" not in scene_prompt
-    assert "室内" not in scene_prompt
+    assert scene_prompt.count("Положение:") == len(scene["cells"])
+    assert "Все ракурсы должны относиться к одной и той же сцене" in scene_prompt
+    assert "0°, 90°, 180°, 270°" in scene_prompt
+    assert "360° панорама" in scene_prompt
+    assert "не добавлять людей или животных, не связанных с референсом" in scene_prompt
+    assert "Все ячейки с персонажем — один и тот же человек" not in scene_prompt
+    assert "интерьер" not in scene_prompt
     scene_defaults = one_click_state(
         scene,
-        "未命名角色",
-        "原创角色，写实电影级",
-        "电影级角色设定，干净背景",
+        "Безымянный персонаж",
+        "Оригинальный персонаж, реалистичный кинематографичный",
+        "Кинематографичный дизайн персонажа, чистый фон",
         False,
     )
-    assert scene_defaults["title"] == "未命名场景"
-    assert scene_defaults["identity"].startswith("完整场景")
-    assert scene_defaults["style"].startswith("写实场景")
+    assert scene_defaults["title"] == "Безымянная сцена"
+    assert scene_defaults["identity"].startswith("Цельная сцена")
+    assert scene_defaults["style"].startswith("реалистичный концепт")
 
     template = TEMPLATES[0]
     state, resolved = normalise_state(
@@ -92,9 +92,9 @@ def main() -> None:
     body = next(slot for slot in state["slots"] if slot["cellId"] == "body_front")
     assert body["enabled"] is False
     assert body["image"] == "body.png"
-    assert body["label"] == "正面全身"
+    assert body["label"] == "Полный рост анфас"
     disabled_prompt = compile_prompt(state, resolved)
-    assert disabled_prompt.count("位置：") == len(template["cells"]) - 1
+    assert disabled_prompt.count("Положение:") == len(template["cells"]) - 1
 
     print(json.dumps({"templates": len(TEMPLATES), "cells": [len(item["cells"]) for item in TEMPLATES]}, ensure_ascii=False))
 

@@ -9,9 +9,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_WORKFLOW = ROOT / "workflows" / "一键角色卡_QwenImage21.json"
-TARGET = ROOT / "workflows" / "角色卡_分项生成_QwenImage21.json"
-PROMPT_TARGET = ROOT / "workflows" / "角色卡_分项生成_提示词版_QwenImage21.json"
+BASE_WORKFLOW = ROOT / "workflows" / "карта_в_один_клик_QwenImage21.json"
+TARGET = ROOT / "workflows" / "карта_ассеты_QwenImage21.json"
+PROMPT_TARGET = ROOT / "workflows" / "карта_ассеты_промпт_QwenImage21.json"
 
 
 def load_templates() -> dict[int, dict]:
@@ -42,28 +42,28 @@ def asset_prompt_node() -> dict:
         "mode": 0,
         "inputs": [],
         "outputs": [
-            {"label": "正面全身", "name": "正面全身", "type": "STRING", "slot_index": 0, "links": None},
-            {"label": "侧面全身", "name": "侧面全身", "type": "STRING", "slot_index": 1, "links": None},
-            {"label": "背面全身", "name": "背面全身", "type": "STRING", "slot_index": 2, "links": None},
-            {"label": "头像", "name": "头像", "type": "STRING", "slot_index": 3, "links": None},
-            {"label": "动作A", "name": "动作A", "type": "STRING", "slot_index": 4, "links": None},
-            {"label": "动作B", "name": "动作B", "type": "STRING", "slot_index": 5, "links": None},
-            {"label": "表情组", "name": "表情组", "type": "STRING", "slot_index": 6, "links": None},
-            {"label": "细节组", "name": "细节组", "type": "STRING", "slot_index": 7, "links": None},
-            {"label": "负面提示词", "name": "负面提示词", "type": "STRING", "slot_index": 8, "links": None},
-            {"label": "卡版配置", "name": "卡版配置", "type": "STRING", "slot_index": 9, "links": None},
-            {"label": "版式引导图", "name": "版式引导图", "type": "IMAGE", "slot_index": 10, "links": None},
-            {"label": "宽度", "name": "宽度", "type": "INT", "slot_index": 11, "links": None},
-            {"label": "高度", "name": "高度", "type": "INT", "slot_index": 12, "links": None},
+            {"label": "Анфас в полный рост", "name": "Анфас в полный рост", "type": "STRING", "slot_index": 0, "links": None},
+            {"label": "Профиль в полный рост", "name": "Профиль в полный рост", "type": "STRING", "slot_index": 1, "links": None},
+            {"label": "Спина в полный рост", "name": "Спина в полный рост", "type": "STRING", "slot_index": 2, "links": None},
+            {"label": "Портрет", "name": "Портрет", "type": "STRING", "slot_index": 3, "links": None},
+            {"label": "Действие A", "name": "Действие A", "type": "STRING", "slot_index": 4, "links": None},
+            {"label": "Действие B", "name": "Действие B", "type": "STRING", "slot_index": 5, "links": None},
+            {"label": "Группа эмоций", "name": "Группа эмоций", "type": "STRING", "slot_index": 6, "links": None},
+            {"label": "Группа деталей", "name": "Группа деталей", "type": "STRING", "slot_index": 7, "links": None},
+            {"label": "Негативный промпт", "name": "Негативный промпт", "type": "STRING", "slot_index": 8, "links": None},
+            {"label": "Конфиг карты", "name": "Конфиг карты", "type": "STRING", "slot_index": 9, "links": None},
+            {"label": "Направляющее изображение макета", "name": "Направляющее изображение макета", "type": "IMAGE", "slot_index": 10, "links": None},
+            {"label": "Ширина", "name": "Ширина", "type": "INT", "slot_index": 11, "links": None},
+            {"label": "Высота", "name": "Высота", "type": "INT", "slot_index": 12, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_CharacterCardAssetPrompt"},
         "widgets_values": [
-            "reference_profile_18 | 参考角色卡18格",
-            "原创男性角色，20岁，黑色短发，灰蓝色眼睛，清瘦脸型，深灰短袖、黑色长裤和白色运动鞋。",
-            "未命名角色",
-            "电影级角色设定，干净背景，柔和棚拍光，专业角色资产",
+            "head_body_6 | 6 ячеек · Три вида",
+            "Оригинальный мужской персонаж, 20 лет, чёрные короткие волосы, серо-голубые глаза, худощавое лицо, тёмно-серая футболка, чёрные брюки и белые кроссовки.",
+            "Безымянный персонаж",
+            "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональные ассеты",
             False,
-            "完整显示",
+            "Полностью",
         ],
     }
 
@@ -71,15 +71,15 @@ def asset_prompt_node() -> dict:
 def composer_node() -> dict:
     inputs = []
     for name, label in [
-        ("full_front", "正面全身"),
-        ("full_profile", "侧面全身"),
-        ("full_back", "背面全身"),
-        ("action_a", "动作A"),
-        ("action_b", "动作B"),
-        ("headshot", "头像"),
-        ("expression_sheet", "表情组"),
-        ("detail_sheet", "细节组"),
-        ("card_config", "卡版配置"),
+        ("full_front", "Анфас в полный рост"),
+        ("full_profile", "Профиль в полный рост"),
+        ("full_back", "Спина в полный рост"),
+        ("action_a", "Действие A"),
+        ("action_b", "Действие B"),
+        ("headshot", "Портрет"),
+        ("expression_sheet", "Группа эмоций"),
+        ("detail_sheet", "Группа деталей"),
+        ("card_config", "Конфиг карты"),
     ]:
         item = {"label": label, "name": name, "type": "IMAGE" if name != "card_config" else "STRING", "link": None}
         inputs.append(item)
@@ -93,9 +93,9 @@ def composer_node() -> dict:
         "mode": 0,
         "inputs": inputs,
         "outputs": [
-            {"label": "角色卡", "name": "角色卡", "type": "IMAGE", "slot_index": 0, "links": None},
-            {"label": "资产批次", "name": "资产批次", "type": "IMAGE", "slot_index": 1, "links": None},
-            {"label": "组合报告", "name": "组合报告", "type": "STRING", "slot_index": 2, "links": None},
+            {"label": "Карта персонажа", "name": "Карта персонажа", "type": "IMAGE", "slot_index": 0, "links": None},
+            {"label": "Пакет ассетов", "name": "Пакет ассетов", "type": "IMAGE", "slot_index": 1, "links": None},
+            {"label": "Отчёт компоновки", "name": "Отчёт компоновки", "type": "STRING", "slot_index": 2, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_CharacterCardAssetComposer"},
         "widgets_values": [],
@@ -182,7 +182,7 @@ def main() -> None:
     save = copy.deepcopy(templates[10])
     reset_node(save, 502, [1120, 930], 51)
     save["size"] = [620, 760]
-    save["widgets_values"] = ["角色卡_分项生成"]
+    save["widgets_values"] = ["карта_ассеты"]
     add(save)
     asset_preview = copy.deepcopy(templates[9])
     reset_node(asset_preview, 503, [620, 1100], 52)
@@ -216,9 +216,9 @@ def main() -> None:
         "nodes": nodes,
         "links": links,
         "groups": [
-            {"id": 1, "title": "角色输入与分项提示词", "bounding": [-3080, 20, 1120, 620], "color": "#3f789e", "flags": {}},
-            {"id": 2, "title": "千问 Image 2.1 · 六路独立生成", "bounding": [-1880, 0, 2440, 1900], "color": "#8a6d3b", "flags": {}},
-            {"id": 3, "title": "角色卡专业自动排版", "bounding": [600, 600, 1300, 1100], "color": "#3f789e", "flags": {}},
+            {"id": 1, "title": "Ввод персонажа и промпты ассетов", "bounding": [-3080, 20, 1120, 620], "color": "#3f789e", "flags": {}},
+            {"id": 2, "title": "Qwen Image 2.1 · шесть независимых веток", "bounding": [-1880, 0, 2440, 1900], "color": "#8a6d3b", "flags": {}},
+            {"id": 3, "title": "Профессиональная авторазметка карты", "bounding": [600, 600, 1300, 1100], "color": "#3f789e", "flags": {}},
         ],
         "config": {},
         "extra": {"frontendVersion": "1.53.6"},

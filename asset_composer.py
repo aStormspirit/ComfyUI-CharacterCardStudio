@@ -67,17 +67,17 @@ def _body_for_cell(
 ) -> tuple[Image.Image, str]:
     cell_id = str(cell.get("id", "")).lower()
     text = f"{cell.get('id', '')} {cell.get('label', '')} {cell.get('prompt', '')}".lower()
-    if _contains_any(text, ("back", "背面", "后视", "背部")):
+    if _contains_any(text, ("back", "背面", "后视", "背部", "спина", "зад", "задний")):
         return full_back, "full_back"
-    if cell_id == "body_right" or _contains_any(text, ("朝左",)):
+    if cell_id == "body_right" or _contains_any(text, ("朝左", "влево", "налево")):
         return ImageOps.mirror(full_profile), "full_profile_mirrored"
     if cell_id == "body_left":
         return full_profile, "full_profile"
-    if _contains_any(text, ("left", "左侧", "侧面", "侧视", "profile", "side")):
+    if _contains_any(text, ("left", "左侧", "侧面", "侧视", "profile", "side", "слева", "профиль", "бок")):
         return full_profile, "full_profile"
-    if _contains_any(text, ("action_b", "动作b")):
+    if _contains_any(text, ("action_b", "动作b", "действиеb", "действие b", "действие_b")):
         return action_b, "action_b"
-    if _contains_any(text, ("action", "动作", "行走", "动态")):
+    if _contains_any(text, ("action", "动作", "行走", "动态", "действие", "ходьба", "динамика")):
         return action_a, "action_a"
     if cell.get("role") == "hero":
         return action_a, "hero_action"
@@ -95,15 +95,15 @@ def _portrait_for_cell(
     fallback_index: int,
 ) -> tuple[Image.Image, str]:
     text = f"{cell.get('id', '')} {cell.get('label', '')} {cell.get('prompt', '')}".lower()
-    if _contains_any(text, ("back", "后脑", "背面")):
+    if _contains_any(text, ("back", "后脑", "背面", "затылок", "спина", "зад")):
         return _head_crop(full_back), "full_back_head_crop"
-    if _contains_any(text, ("right", "右侧")):
+    if _contains_any(text, ("right", "右侧", "справа")):
         return ImageOps.mirror(_head_crop(full_profile)), "full_profile_head_crop_mirrored"
-    if _contains_any(text, ("side", "profile", "侧脸", "侧面")):
+    if _contains_any(text, ("side", "profile", "侧脸", "侧面", "профиль", "бок")):
         return _head_crop(full_profile), "full_profile_head_crop"
-    if _contains_any(text, ("three_quarter", "斜侧", "四分之三", "三分之四")):
+    if _contains_any(text, ("three_quarter", "斜侧", "四分之三", "三分之四", "три четверти", "3/4")):
         return _head_crop(action_a), "action_head_crop"
-    if text.strip() and "正面" in text:
+    if text.strip() and ("正面" in text or "анфас" in text or "фронт" in text):
         return headshot, "headshot"
     if portraits:
         index = fallback_index % len(portraits)
@@ -114,13 +114,13 @@ def _portrait_for_cell(
 def _expression_for_cell(cell: dict[str, Any], expressions: list[Image.Image], fallback_index: int) -> tuple[Image.Image, str]:
     text = f"{cell.get('id', '')} {cell.get('label', '')} {cell.get('prompt', '')}"
     mapping = [
-        (("neutral", "平静", "中性"), 0),
-        (("angry", "生气", "愤怒", "蹙眉", "冷峻"), 2),
-        (("surprised", "惊讶", "吃惊"), 4),
-        (("thinking", "沉思", "闭眼"), 5),
-        (("happy", "开心", "微笑", "快乐"), 1),
-        (("sad", "难过", "悲伤"), 3),
-        (("shy", "害羞", "温柔"), 5),
+        (("neutral", "平静", "中性", "спокойный", "нейтральный"), 0),
+        (("angry", "生气", "愤怒", "蹙眉", "冷峻", "злой", "гнев", "сердитый"), 2),
+        (("surprised", "惊讶", "吃惊", "удивление", "удивлённый", "surprised"), 4),
+        (("thinking", "沉思", "闭眼", "задумчивый", "закрытые глаза"), 5),
+        (("happy", "开心", "微笑", "快乐", "счастливый", "улыбка", "радость"), 1),
+        (("sad", "难过", "悲伤", "грустный", "печаль"), 3),
+        (("shy", "害羞", "温柔", "застенчивый", "нежный"), 5),
     ]
     for words, index in mapping:
         if _contains_any(text, words):
@@ -132,12 +132,12 @@ def _expression_for_cell(cell: dict[str, Any], expressions: list[Image.Image], f
 def _detail_for_cell(cell: dict[str, Any], details: list[Image.Image], fallback_index: int) -> tuple[Image.Image, str]:
     text = f"{cell.get('id', '')} {cell.get('label', '')} {cell.get('prompt', '')}"
     mapping = [
-        (("eye", "眼部", "眼睛", "瞳"), 0),
-        (("hand", "手部", "手"), 1),
-        (("shoes", "鞋履", "鞋"), 4),
-        (("costume", "服装", "衣料", "材质", "面料", "fabric"), 2),
-        (("pattern", "图案", "纹样", "徽"), 3),
-        (("accessory", "配饰", "道具", "项链", "耳"), 5),
+        (("eye", "眼部", "眼睛", "瞳", "глаза", "глаз"), 0),
+        (("hand", "手部", "手", "рука", "кисть"), 1),
+        (("shoes", "鞋履", "鞋", "обувь", "туфли"), 4),
+        (("costume", "服装", "衣料", "材质", "面料", "fabric", "костюм", "одежда", "ткань", "материал"), 2),
+        (("pattern", "图案", "纹样", "徽", "узор", "паттерн", "эмблема"), 3),
+        (("accessory", "配饰", "道具", "项链", "耳", "аксессуар", "реквизит", "ожерелье", "серьги"), 5),
     ]
     for words, index in mapping:
         if _contains_any(text, words):
@@ -158,7 +158,7 @@ def compose_role_card(
     detail_sheet: Image.Image,
     template: dict[str, Any],
     panel_order: str = "",
-    fit_mode: str = "完整显示",
+    fit_mode: str = "Полностью",
     show_labels: bool = False,
 ) -> tuple[Image.Image, list[Image.Image], dict[str, Any]]:
     if str(template.get("kind") or "") == "scene":
@@ -178,7 +178,7 @@ def compose_role_card(
     detail_index = 0
     portrait_index = 0
     mapping: list[dict[str, Any]] = []
-    target_fit = "cover" if "填满" in str(fit_mode) else "contain"
+    target_fit = "cover" if ("Заполн" in str(fit_mode) or "填满" in str(fit_mode) or "заполн" in str(fit_mode)) else "contain"
 
     for target_index, cell in enumerate(template.get("cells", [])):
         role = str(cell.get("role") or "custom").lower()
@@ -215,12 +215,12 @@ def compose_role_card(
         canvas.paste(fitted, (rect[0], rect[1]))
         draw.rectangle(rect, outline=(211, 214, 219), width=max(1, int(min(width, height) / 1400)))
         if show_labels:
-            _draw_label(draw, rect, str(cell.get("label") or f"画格 {target_index + 1}"))
+            _draw_label(draw, rect, str(cell.get("label") or f"Ячейка {target_index + 1}"))
         mapping.append(
             {
                 "target": target_index + 1,
                 "role": role,
-                "label": str(cell.get("label") or f"画格 {target_index + 1}"),
+                "label": str(cell.get("label") or f"Ячейка {target_index + 1}"),
                 "source": source_name,
                 "fit": target_fit,
             }

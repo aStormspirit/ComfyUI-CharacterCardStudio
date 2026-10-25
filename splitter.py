@@ -98,11 +98,11 @@ def recompose_card(
     panel_order: str,
     inset: float = 0.01,
     show_labels: bool = False,
-    fit_mode: str = "完整显示",
+    fit_mode: str = "Полностью",
 ) -> tuple[Image.Image, list[Image.Image], dict[str, Any]]:
     source_panels = crop_template_panels(source_image, source_template, inset)
     order = parse_panel_order(panel_order, len(source_panels))
-    target_fit = "cover" if "填满" in str(fit_mode) else "contain"
+    target_fit = "cover" if ("Заполн" in str(fit_mode) or "填满" in str(fit_mode) or "заполн" in str(fit_mode)) else "contain"
     target_cells = target_template.get("cells", [])
     defaults = target_template.get("defaults", {})
     width = int(defaults.get("width") or target_template.get("width") or 2048)
@@ -125,12 +125,12 @@ def recompose_card(
         canvas.paste(fitted, (rect[0], rect[1]))
         draw.rectangle(rect, outline=(211, 214, 219), width=max(1, int(min(width, height) / 1400)))
         if show_labels:
-            _draw_label(draw, rect, str(cell.get("label") or f"画格 {target_index + 1}"))
+            _draw_label(draw, rect, str(cell.get("label") or f"Ячейка {target_index + 1}"))
         mapping.append(
             {
                 "target": target_index + 1,
                 "source": source_index + 1,
-                "label": str(cell.get("label") or f"画格 {target_index + 1}"),
+                "label": str(cell.get("label") or f"Ячейка {target_index + 1}"),
             }
         )
 
@@ -143,7 +143,7 @@ def recompose_card(
         "sourcePanels": len(source_panels),
         "targetPanels": len(target_cells),
         "order": order,
-        "fitMode": "填满裁切" if target_fit == "cover" else "完整显示",
+        "fitMode": "Заполнить с обрезкой" if target_fit == "cover" else "Полностью",
         "mapping": mapping,
     }
     return canvas, normalized, report

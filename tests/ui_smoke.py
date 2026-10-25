@@ -13,7 +13,7 @@ from playwright.sync_api import sync_playwright
 URL = os.environ.get("CCS_TEST_URL", "http://127.0.0.1:8199")
 IMAGE = os.environ.get(
     "CCS_TEST_IMAGE",
-    r"K:\6.人物多视图\22785d770f0efdcf632f8e8a954a4b05032b63a4ac5a92e74da551fed6020ab2.jpg",
+    "22785d770f0efdcf632f8e8a954a4b05032b63a4ac5a92e74da551fed6020ab2.jpg",
 )
 OUT = Path(__file__).resolve().parents[1] / "_ui_test"
 OUT.mkdir(exist_ok=True)

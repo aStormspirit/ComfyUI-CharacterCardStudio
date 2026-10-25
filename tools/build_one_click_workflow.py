@@ -9,8 +9,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "workflows" / "角色卡_QwenImage21.json"
-TARGET = ROOT / "workflows" / "一键角色卡_QwenImage21.json"
+SOURCE = ROOT / "workflows" / "карта_персонажа_QwenImage21.json"
+TARGET = ROOT / "workflows" / "карта_в_один_клик_QwenImage21.json"
 
 
 def main() -> None:
@@ -22,23 +22,23 @@ def main() -> None:
     studio["type"] = "AICG3D_CharacterCardOneClick"
     studio["size"] = [520, 460]
     studio["outputs"] = [
-        {"label": "提示词", "name": "提示词", "type": "STRING", "slot_index": 0, "links": [1]},
-        {"label": "负面提示词", "name": "负面提示词", "type": "STRING", "slot_index": 1, "links": [2]},
-        {"label": "版式引导图", "name": "版式引导图", "type": "IMAGE", "slot_index": 2, "links": None},
-        {"label": "卡版JSON", "name": "卡版JSON", "type": "STRING", "slot_index": 3, "links": [18]},
-        {"label": "宽度", "name": "宽度", "type": "INT", "slot_index": 4, "links": [4]},
-        {"label": "高度", "name": "高度", "type": "INT", "slot_index": 5, "links": [5]},
-        {"label": "卡版选项", "name": "卡版选项", "type": "STRING", "slot_index": 6, "links": None},
+        {"label": "Промпт", "name": "Промпт", "type": "STRING", "slot_index": 0, "links": [1]},
+        {"label": "Негативный промпт", "name": "Негативный промпт", "type": "STRING", "slot_index": 1, "links": [2]},
+        {"label": "Направляющее изображение макета", "name": "Направляющее изображение макета", "type": "IMAGE", "slot_index": 2, "links": None},
+        {"label": "JSON карты", "name": "JSON карты", "type": "STRING", "slot_index": 3, "links": [18]},
+        {"label": "Ширина", "name": "Ширина", "type": "INT", "slot_index": 4, "links": [4]},
+        {"label": "Высота", "name": "Высота", "type": "INT", "slot_index": 5, "links": [5]},
+        {"label": "Вариант карты", "name": "Вариант карты", "type": "STRING", "slot_index": 6, "links": None},
     ]
     studio["properties"] = {"Node name for S&R": "AICG3D_CharacterCardOneClick"}
     studio["widgets_values"] = [
-        "character_profile_12 | 角色设定卡",
-        "原创男性角色，20岁，黑色短发，灰蓝色眼睛，清瘦脸型，深灰短袖、黑色长裤和白色运动鞋。",
-        "未命名角色",
-        "电影级角色设定卡，干净背景，柔和棚拍光，专业排版",
+        "head_body_6 | 6 ячеек · Три вида",
+        "Оригинальный мужской персонаж, 20 лет, чёрные короткие волосы, серо-голубые глаза, худощавое лицо, тёмно-серая футболка, чёрные брюки и белые кроссовки.",
+        "Безымянный персонаж",
+        "Кинематографичный дизайн персонажа, чистый фон, мягкий студийный свет, профессиональная вёрстка",
         False,
         "1-17",
-        "完整显示",
+        "Полностью",
         0.008,
     ]
 
@@ -52,14 +52,14 @@ def main() -> None:
         "mode": 0,
         "inputs": [
             {
-                "label": "图像",
+                "label": "Изображение",
                 "name": "image",
                 "type": "COMBO",
                 "widget": {"name": "image"},
                 "link": None,
             },
             {
-                "label": "上传",
+                "label": "Загрузка",
                 "name": "upload",
                 "type": "IMAGEUPLOAD",
                 "widget": {"name": "upload"},
@@ -67,8 +67,8 @@ def main() -> None:
             },
         ],
         "outputs": [
-            {"label": "图像", "name": "IMAGE", "type": "IMAGE", "slot_index": 0, "links": [3]},
-            {"label": "遮罩", "name": "MASK", "type": "MASK", "slot_index": 1, "links": None},
+            {"label": "Изображение", "name": "IMAGE", "type": "IMAGE", "slot_index": 0, "links": [3]},
+            {"label": "Маска", "name": "MASK", "type": "MASK", "slot_index": 1, "links": None},
         ],
         "properties": {"Node name for S&R": "LoadImage"},
         "widgets_values": ["", "image"],
@@ -83,13 +83,13 @@ def main() -> None:
         "order": 7,
         "mode": 0,
         "inputs": [
-            {"label": "角色卡", "name": "images", "type": "IMAGE", "link": 14},
-            {"label": "卡版配置", "name": "card_config", "type": "STRING", "link": 18},
+            {"label": "Карта персонажа", "name": "images", "type": "IMAGE", "link": 14},
+            {"label": "Конфиг карты", "name": "card_config", "type": "STRING", "link": 18},
         ],
         "outputs": [
-            {"label": "重排角色卡", "name": "重排角色卡", "type": "IMAGE", "slot_index": 0, "links": [15, 16]},
-            {"label": "切片批次", "name": "切片批次", "type": "IMAGE", "slot_index": 1, "links": [17]},
-            {"label": "切分报告", "name": "切分报告", "type": "STRING", "slot_index": 2, "links": None},
+            {"label": "Перекомпонованная карта", "name": "Перекомпонованная карта", "type": "IMAGE", "slot_index": 0, "links": [15, 16]},
+            {"label": "Пакет нарезок", "name": "Пакет нарезок", "type": "IMAGE", "slot_index": 1, "links": [17]},
+            {"label": "Отчёт о нарезке", "name": "Отчёт о нарезке", "type": "STRING", "slot_index": 2, "links": None},
         ],
         "properties": {"Node name for S&R": "AICG3D_CharacterSheetSplitter"},
         "widgets_values": [],
@@ -103,7 +103,7 @@ def main() -> None:
         "flags": {},
         "order": 9,
         "mode": 0,
-        "inputs": [{"label": "切片批次", "name": "images", "type": "IMAGE", "link": 17}],
+        "inputs": [{"label": "Пакет нарезок", "name": "images", "type": "IMAGE", "link": 17}],
         "outputs": [],
         "properties": {"Node name for S&R": "PreviewImage"},
         "widgets_values": [],
@@ -184,9 +184,9 @@ def main() -> None:
         [18, 1, 3, 12, 1, "STRING"],
     ]
     workflow["groups"] = [
-        {"id": 1, "title": "输入角色图 / 提示词", "bounding": [-1640, 20, 2230, 680], "color": "#3f789e", "flags": {}},
-        {"id": 2, "title": "千问生成", "bounding": [-60, 20, 1250, 680], "color": "#8a6d3b", "flags": {}},
-        {"id": 3, "title": "自动切片与重排", "bounding": [1600, 20, 1160, 1440], "color": "#3f789e", "flags": {}},
+        {"id": 1, "title": "Ввод изображения / промпта персонажа", "bounding": [-1640, 20, 2230, 680], "color": "#3f789e", "flags": {}},
+        {"id": 2, "title": "Генерация Qwen", "bounding": [-60, 20, 1250, 680], "color": "#8a6d3b", "flags": {}},
+        {"id": 3, "title": "Автонарезка и перестановка", "bounding": [1600, 20, 1160, 1440], "color": "#3f789e", "flags": {}},
     ]
     workflow["id"] = "a3cc4e6a-65a3-4e3f-9f10-oneclickcardqwen21"
     TARGET.write_text(json.dumps(workflow, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -199,8 +199,8 @@ def main() -> None:
         if node["type"] == "TextEncodeQwenImage21":
             node["inputs"][1]["link"] = None
     prompt_only["links"] = [link for link in prompt_only["links"] if link[0] != 3]
-    prompt_only["groups"][0]["title"] = "人物提示词"
-    prompt_target = ROOT / "workflows" / "一键角色卡_提示词版_QwenImage21.json"
+    prompt_only["groups"][0]["title"] = "Промпт персонажа"
+    prompt_target = ROOT / "workflows" / "карта_в_один_клик_промпт_QwenImage21.json"
     prompt_target.write_text(json.dumps(prompt_only, ensure_ascii=False, indent=2), encoding="utf-8")
     print(prompt_target)
 

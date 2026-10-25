@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKFLOW = ROOT / "workflows" / "角色卡_五种卡版_单线工作流.json"
+WORKFLOW = ROOT / "workflows" / "карта_персонажа_9_макетов_линейный.json"
 URL = os.environ.get("CCS_TEST_URL", "http://127.0.0.1:8199")
 
 
